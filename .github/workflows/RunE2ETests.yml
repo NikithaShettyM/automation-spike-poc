@@ -45,8 +45,8 @@ jobs:
       - name: Install Dependencies (Automated Tests)
         run: cd integrationtests && yarn
 
-      - name: Build (Automated Tests)
-        run: cd integrationtests && yarn build
+      #- name: Build (Automated Tests)
+      #  run: cd integrationtests && yarn build
 
       - name: Run Automated Tests
         run: cd integrationtests && yarn run wdio:ci
