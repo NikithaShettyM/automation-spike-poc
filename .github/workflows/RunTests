@@ -1,0 +1,64 @@
+name: CI
+on:
+  workflow_dispatch:
+    branches: '**/*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v1
+
+      - name: Install node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.14.1'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn local cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+
+      - name: Install Dependencies
+        run: yarn
+
+      # - name: Security Audit Dependencies
+      #   run: yarn audit
+
+      - name: Check yarn.lock
+        run: >
+          git diff --exit-code yarn.lock || ( echo 'Error: yarn.lock was modified by `yarn install`. This probably means that you forgot to run `yarn install` locally and then git-add the resulting changes made to yarn.lock.' >&2 && false )
+
+      # - name: Run Unit Tests
+      #   run: yarn test
+
+      - name: Install Dependencies (Automated Tests)
+        run: cd integrationtests && yarn
+
+      - name: Build (Automated Tests)
+        run: cd integrationtests && yarn build
+
+      - name: Run Automated Tests
+        run: cd integrationtests && yarn run wdio:ci
+
+    #  - name: Build (Feature Branch)
+    #    run: yarn build
+
+    #  - name: Push Build To S3
+    #    run: .github/scripts/push-to-s3.js
+    #   env:
+    #      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     GITHUB_REPO: ${{ github.repository }}
+    #      GITHUB_REPO_ISSUE: ${{ github.event.number }}
+    #     GITHUB_REPO_BRANCH: ${{ github.head_ref }}
+    #     AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}

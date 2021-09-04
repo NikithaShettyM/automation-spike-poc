@@ -109,7 +109,7 @@ exports.config = {
   // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
   // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
   // gets prepended directly.
-  baseUrl: 'https://pre-www.audi.co.uk',
+  baseUrl: 'https://pre-www.audi.co.uk/uk/web/en/find-and-buy/business-and-fleet/contact-us.html#/',
   //
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
@@ -134,16 +134,8 @@ exports.config = {
         port: 8080,
       },
     ],
-    [
-      'wiremock',
-      {
-        args: ['--https-port=8081','--enable-stub-cors'], 
-        port: 8082,
-        rootDir: './wiremock',
-      },
-    ],
   ],
-  chromeDriverArgs: ['--port=9515', "--url-base='/'"],
+  chromeDriverArgs: ['--port=9515', "--url-base='https://pre-www.audi.co.uk/uk/web/en/find-and-buy/business-and-fleet/contact-us.html#/'"],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
