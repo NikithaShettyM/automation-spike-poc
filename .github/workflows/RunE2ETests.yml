@@ -1,4 +1,4 @@
-name: CI
+name: RunE2ETests
 on:
   workflow_dispatch:
     branches: '**/*'
