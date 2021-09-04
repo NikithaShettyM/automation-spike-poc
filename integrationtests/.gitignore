@@ -1,0 +1,15 @@
+# Logs
+*.log
+
+# Dependency directory
+node_modules
+
+errorShots
+coverage
+
+report.*.json
+
+# Editor files
+.idea
+.vscode
+!.vscode/extensions.json

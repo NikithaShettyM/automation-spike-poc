@@ -1,0 +1,16 @@
+/**
+ * Close the last opened window
+ * @param  {String}   obsolete Type of object to close (window or tab)
+ */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+export default (obsolete) => {
+  /* eslint-enable @typescript-eslint/no-unused-vars */
+  /**
+   * The last opened window handle
+   * @type {Object}
+   */
+
+  browser.closeWindow();
+  const lastWindowHandle = browser.getWindowHandles().slice(-1)[0];
+  browser.switchToWindow(lastWindowHandle);
+};

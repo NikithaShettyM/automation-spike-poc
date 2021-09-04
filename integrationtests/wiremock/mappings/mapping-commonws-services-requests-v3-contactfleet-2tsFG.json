@@ -1,0 +1,34 @@
+{
+  "id": "b285c423-282c-3775-8f3e-cb7fb4b4e385",
+  "request": {
+    "url": "/commonws/services/requests/v3/contactfleet",
+    "method": "POST",
+    "bodyPatterns": [
+      {
+        "equalToJson": "{\"title\":\"Mr\",\"forename\":\"Marius\",\"surname\":\"Teo\",\"email\":\"eu@gmail.com\",\"customerType\":\"Fleet Manager\",\"company\":\"IKEA\",\"postCode\":\"AB101AH\",\"fleetSize\":\"101-500\",\"message\":\"I would like to know more about this model\",\"phoneNo\":\"09859483829\",\"brandId\":\"3\",\"requestType\":\"CFT\",\"source\":\"webaudicouk_contact_fleet\"}",
+        "ignoreArrayOrder": true,
+        "ignoreExtraElements": true
+      }
+    ]
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "body-commonws-services-requests-v3-contactfleet-2tsFG.json",
+    "headers": {
+      "Date": "Thu, 17 Jun 2021 08:19:19 GMT",
+      "Content-Type": "application/json",
+      "x-amzn-RequestId": "72778640-fbd2-4427-b5bd-d8f59cc504ff",
+      "x-amz-apigw-id": "BD3NHGdSjoEFktA=",
+      "X-Amzn-Trace-Id": "Root=1-60cb0586-0a5490fe29c575853eca8c65",
+      "Set-Cookie": [
+        "visid_incap_2180373=tOSoNNutRRaEdVwMlMcv66EEy2AAAAAAQUIPAAAAAABGqDc8EX+XWQA5RrQG9Tj6; expires=Thu, 16 Jun 2022 14:33:52 GMT; HttpOnly; path=/; Domain=.audi-services.co.uk; Secure; SameSite=None",
+        "nlbi_2180373=/5bWMlyDIFxRu6yGNhM+ngAAAADIxl7qKKcSURO358b+8DuF; path=/; Domain=.audi-services.co.uk; Secure; SameSite=None",
+        "incap_ses_9218_2180373=bWCDISlxmQ3c5ubGV+rsf4YFy2AAAAAAvY0FINyVSPJMdeu7yvYqeQ==; path=/; Domain=.audi-services.co.uk; Secure; SameSite=None"
+      ],
+      "Strict-Transport-Security": "max-age=31536000",
+      "X-CDN": "Imperva",
+      "X-Iinfo": "10-24908378-24908425 NNYN CT(12 27 0) RT(1623917958026 131) q(0 0 0 0) r(2 2) U6"
+    }
+  },
+  "uuid": "b285c423-282c-3775-8f3e-cb7fb4b4e385"
+}
