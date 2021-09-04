@@ -5,7 +5,7 @@
     "wdio": "wdio wdio.conf.js",
     "wdio:ci": "CI=true wdio wdio.CI.conf.js",
     "wiremock:standalone": "wiremock --https-port=8081 --root-dir=wiremock",
-    "build": "cd ../ && cross-env SOA_ROOT=localhost:8081 yarn build"
+    "build": "cd ./ && cross-env SOA_ROOT=localhost:8081 yarn build"
   },
   "dependencies": {},
   "devDependencies": {
