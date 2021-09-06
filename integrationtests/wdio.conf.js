@@ -154,7 +154,7 @@ exports.config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter.html
-  reporters: ['allure'],
+  reporters: ['spec', 'allure'],
     reporterOptions: {
         allure: {
             outputDir: 'allure-results',
